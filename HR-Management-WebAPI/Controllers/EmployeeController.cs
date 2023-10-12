@@ -1,11 +1,8 @@
 ﻿using HR_Management_WebAPI.Contracts;
 using HR_Management_WebAPI.Entities;
 using HR_Management_WebAPI.Helpers;
-using HR_Management_WebAPI.Models.Employees;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace HR_Management_WebAPI.Controllers
@@ -31,6 +28,7 @@ namespace HR_Management_WebAPI.Controllers
             try
             {
                 var employees = await _employeesRepo.GetEmployees();
+                await Task.Delay(1000);
                 return Ok(employees);
             }
             catch (Exception ex)
@@ -39,6 +37,7 @@ namespace HR_Management_WebAPI.Controllers
                 return StatusCode(500, ex.Message);
             }
         }
+
         /// <summary>
         /// Api Get method to create a new employee.
         /// </summary>
@@ -61,6 +60,7 @@ namespace HR_Management_WebAPI.Controllers
                 return StatusCode(500, ex.Message);
             }
         }
+
         /// <summary>
         /// Api Get method to update an existing employee.
         /// </summary>
@@ -87,6 +87,7 @@ namespace HR_Management_WebAPI.Controllers
                 return StatusCode(500, ex.Message);
             }
         }
+
         /// <summary>
         /// Api Get method to delete an existing employee.
         /// </summary>
@@ -136,6 +137,7 @@ namespace HR_Management_WebAPI.Controllers
                 return StatusCode(500, ex.Message);
             }
         }
+
         /// <summary>
         /// Api Get method to list historical salaries to an employee.
         /// </summary>

@@ -1,11 +1,8 @@
 ﻿using HR_Management_WebAPI.Contracts;
 using HR_Management_WebAPI.Entities;
 using HR_Management_WebAPI.Helpers;
-using HR_Management_WebAPI.Models.Roles;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace HR_Management_WebAPI.Controllers
@@ -31,6 +28,7 @@ namespace HR_Management_WebAPI.Controllers
             try
             {
                 var roles = await _rolesRepo.GetRoles();
+                await Task.Delay(1000);
                 return Ok(roles);
             }
             catch (Exception ex)
@@ -39,6 +37,7 @@ namespace HR_Management_WebAPI.Controllers
                 return StatusCode(500, ex.Message);
             }
         }
+
         /// <summary>
         /// Api Get method to create a new role.
         /// </summary>
@@ -53,6 +52,7 @@ namespace HR_Management_WebAPI.Controllers
                 if (await _rolesRepo.GetRoleByName(role.rol_name!) != null)
                     throw new ApplicationException("Role with the name '" + role.rol_name + "' already exists.");
                 CustomResponse model = await _rolesRepo.CreateRole(role);
+                await Task.Delay(1000);
                 return Ok(new { message = model.Message, data = model.Data });
             }
             catch (Exception ex)
@@ -61,6 +61,7 @@ namespace HR_Management_WebAPI.Controllers
                 return StatusCode(500, ex.Message);
             }
         }
+
         /// <summary>
         /// Api Get method to update an existing role.
         /// </summary>
@@ -82,6 +83,7 @@ namespace HR_Management_WebAPI.Controllers
                 return StatusCode(500, ex.Message);
             }
         }
+
         /// <summary>
         /// Api Get method to delete an existing role.
         /// </summary>

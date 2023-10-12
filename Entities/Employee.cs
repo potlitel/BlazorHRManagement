@@ -42,8 +42,9 @@ namespace Entities
         public float startingSalary { get; set; }
 
         //public List<Role> Roles { get; set; } = new List<Role>();
+        //public List<string> roles { get; set; } = new List<string>();
         [Required]
         [DefaultValue("[1]")]
-        public List<int> Roles { get; set; } = new List<int>();
+        public string roles { get; set; } = null!;
     }
 }

@@ -1,4 +1,54 @@
 ﻿@page "/employees"
-<div>
-    employees
+@inject IRepositorio repo
+@inject SweetAlertService swal
+@inject IDialogService DialogService
+@inject NavigationManager navigationManager
+<MudTable Items="@employees" Loading="@_loading" Breakpoint="Breakpoint.Sm" Dense="@dense" Hover="@hover" Bordered="@bordered" Striped="@striped"
+          Filter="new Func<Employee,bool>(FilterFunc1)" @bind-SelectedItem="selectedItem1">
+    <ToolBarContent>
+        <MudText Typo="Typo.h6">Listado de Empleados</MudText>
+        <MudSpacer />
+        <MudTextField @bind-Value="searchString1" Placeholder="Search" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search"
+                      IconSize="Size.Medium" Class="mt-0"></MudTextField>
+        @* <MudIconButton Icon="@Icons.Material.Filled.Add" Variant="Variant.Outlined" Color="Color.Primary" Size="Size.Large" /> *@
+        <MudTooltip Text="Add employee" Arrow="true" Placement="Placement.Left" Duration="0">
+            <MudFab Icon="@Icons.Material.Filled.Add" Color="Color.Primary" />
+        </MudTooltip>
+    </ToolBarContent>
+    <HeaderContent>
+        <MudTh>Nombre Rol</MudTh>
+        @* <MudTh>Sign</MudTh>
+        <MudTh>Name</MudTh>
+        <MudTh>Position</MudTh>
+        <MudTh>Molar mass</MudTh> *@
+    </HeaderContent>
+    <RowTemplate>
+        <MudTd DataLabel="Nr">@context.employee_name</MudTd>
+        <MudTd DataLabel="Azioni" Style="text-align:right">
+            <MudTooltip Text="Delete employee" Arrow="true" Placement="Placement.Left" Duration="0"><MudIconButton Icon="@Icons.Material.Filled.Delete" aria-label="delete" @onclick="(() => DeleteRol(context))"></MudIconButton></MudTooltip>
+            <MudTooltip Text="Update employee" Arrow="true" Placement="Placement.Left" Duration="0"><MudIconButton Icon="@Icons.Material.Filled.Edit" Color="Color.Primary" aria-label="edit" @onclick="((e) => OpenDialog())"></MudIconButton></MudTooltip>
+        </MudTd>
+        @* <MudTd DataLabel="Sign">@context.Sign</MudTd>
+        <MudTd DataLabel="Name">@context.Name</MudTd>
+        <MudTd DataLabel="Position">@context.Position</MudTd>
+        <MudTd DataLabel="Molar mass">@context.Molar</MudTd> *@
+    </RowTemplate>
+    <NoRecordsContent>
+        <MudText>No employees found</MudText>
+    </NoRecordsContent>
+    <PagerContent>
+        <MudTablePager RowsPerPageString="Pratiche per pagina" />
+    </PagerContent>
+</MudTable>
+
+<div class="d-flex flex-wrap mt-4">
+    @* <MudSwitch @bind-Checked="@hover" Color="Color.Primary">Hover</MudSwitch>
+    <MudSwitch @bind-Checked="@dense" Color="Color.Secondary">Dense</MudSwitch>
+    <MudSwitch @bind-Checked="@striped" Color="Color.Tertiary">Striped</MudSwitch>
+    <MudSwitch @bind-Checked="@bordered" Color="Color.Warning">Bordered</MudSwitch>
+    <MudSpacer />
+    <div style="min-width:200px;">
+    <MudText Inline="true" Class="align-self-center">Selected1: @selectedItem1?.rol_name</MudText>
+    </div> *@
 </div>
+

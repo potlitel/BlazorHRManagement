@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorHRManagement", "BlazorHRManagement\BlazorHRManagement.csproj", "{C10F9D8F-0BB4-460B-8ACF-686693D8546F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorHRManagement", "BlazorHRManagement\BlazorHRManagement.csproj", "{C10F9D8F-0BB4-460B-8ACF-686693D8546F}"
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "HR-Management-Database", "HR-Management-Database\HR-Management-Database.sqlproj", "{12FD361B-EC95-415A-9250-D5AFA2B40730}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HR-Management-WebAPI", "HR-Management-WebAPI\HR-Management-WebAPI.csproj", "{61A59DFA-2FEB-4A22-BBB7-8CBE78537199}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entities.csproj", "{7AFF4510-6D25-4ECB-AF83-A8E3EABF5D2F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities", "Entities\Entities.csproj", "{7AFF4510-6D25-4ECB-AF83-A8E3EABF5D2F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
